@@ -3,10 +3,14 @@ import { reactive } from "vue";
 
 export const state = reactive({
     movies: [],
+    series: [],
     
 
-    addElement(url){
+    addMovie(url){
         axios.get(url).then((response) => state.movies = response.data.results)
+    },
+    addSerie(url){
+        axios.get(url).then((response) => state.series = response.data.results)
     }
 })
 
