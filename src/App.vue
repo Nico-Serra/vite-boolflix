@@ -1,6 +1,6 @@
 <script>
 import {state} from './state.js'
-
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 export default {
   data(){
@@ -28,7 +28,7 @@ export default {
   </div>
 
   <ul>
-    <li v-for="movie in state.movies">{{ movie.title }} , {{ movie.original_title }} , {{ movie.original_language }} , {{ movie.vote_average }}</li>
+    <li v-for="movie in state.movies">{{ movie.title }} , {{ movie.original_title }} , <i :class="'fi fi-'+ movie.original_language" v-if="movie.original_language != 'en' && movie.original_language != 'ja' && movie.original_language != 'zh' "></i> <img src="/public/img/en.png" alt="" width="30px" v-if="movie.original_language==='en'"> <img src="/public/img/ja.png" alt="" width="30px" v-if="movie.original_language==='ja'"> <img src="/public/img/zh.png" alt="" width="30px" v-if="movie.original_language==='zh'">, {{ movie.vote_average }}</li>
   </ul>
 </template>
 
