@@ -33,6 +33,7 @@ export default {
     <h2>FILM</h2>
     <ul>
       <li v-for="movie in state.movies">
+        <img :src="'https://image.tmdb.org/t/p/w342/'+ movie.poster_path" alt="">
         {{ movie.title }} , {{ movie.original_title }} , 
         <i :class="'fi fi-' + movie.original_language"
           v-if="movie.original_language != 'en' && movie.original_language != 'ja' && movie.original_language != 'zh'"></i>
@@ -47,7 +48,9 @@ export default {
   <div>
     <h2>SERIE TV</h2>
     <ul>
-      <li v-for="serie in state.series">{{ serie.name }}, {{ serie.original_name }}, 
+      <li v-for="serie in state.series">
+        <img :src="'https://image.tmdb.org/t/p/w342/'+ serie.poster_path" alt="">
+        {{ serie.name }}, {{ serie.original_name }}, 
         <i :class="'fi fi-' + serie.original_language"
           v-if="serie.original_language != 'en' && serie.original_language != 'ja' && serie.original_language != 'zh'"></i>
 
