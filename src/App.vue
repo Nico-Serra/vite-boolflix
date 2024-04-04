@@ -32,7 +32,7 @@ export default {
 <template>
   <AppHeader @clickOnSearch="search" />
 
-  <div v-if="state.movies.length > 0">
+  <div v-if="state.movies.length > 0 && state.series.length > 0">
 
     <div class="container">
       <div class="row">
@@ -40,12 +40,14 @@ export default {
         <CardMovie :movie="movie" v-for="movie in state.movies" />
         <CardSerie :serie="serie" v-for="serie in state.series" />
 
-
+        
 
       </div>
 
     </div>
   </div>
+  <p v-else>No results</p>
+  
 
   <!-- <div v-if="state.series.length > 0">
     <h2>SERIE TV</h2>

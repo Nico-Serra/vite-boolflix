@@ -1,13 +1,33 @@
 <script>
+import axios from 'axios';
+
 export default {
     name: 'CardMovie',
     data() {
         return {
-
+            
+            
+            cast:[],
+            genres:[],
         }
     },
     props: {
         movie: Object,
+    },
+    methods: {
+        showTheCast(movie){
+            const movieID =  movie.id;
+            const url = `https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=3d400e0ed0f9cd54b51de374af445077`
+            axios.get(url).then(resp => this.cast = resp.data.cast)
+        },
+        genre(movie){
+            const movieID =  movie.id;
+            axios.get(`https://api.themoviedb.org/3/movie/${movieID}?api_key=3d400e0ed0f9cd54b51de374af445077`).then(resp => this.genres = resp.data.genres)
+        }
+        
+    },
+    mounted(){
+        
     }
 }
 </script>
@@ -42,6 +62,15 @@ export default {
                 </div>
 
                 <p>Overview: {{ movie.overview }}</p>
+
+                <button @click="showTheCast(movie)">Cast</button>
+                <button @click="genre(movie)">Genres</button>
+                <div class="cast">
+                    <ul>
+                        <li v-for="actor in cast.slice(0, 5)" >{{ actor.name }}, {{actor.character}}</li>
+                        <li v-for="genre in genres">{{ genre.name }}</li>
+                    </ul>
+                </div>
             </div>
 
         </div>
