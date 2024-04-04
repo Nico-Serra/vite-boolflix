@@ -1,5 +1,7 @@
 <script>
+import axios from 'axios';
 import { state } from '../state.js'
+
 export default {
   name: 'CardSerie',
   data() {
@@ -54,11 +56,18 @@ export default {
         </div>
 
         <p>Overview: {{ serie.overview }}</p>
-        <button @click="showTheCast(serie)">Cast</button>
-        <button @click="genre(serie)">Genres</button>
+
+        <div class="buttons">
+          <button @click="showTheCast(serie)">Cast</button>
+          <button @click="genre(serie)">Genres</button>
+        </div>
+
         <div class="cast">
           <ul>
-            <li v-for="actor in cast.slice(0, 5)">{{ actor.name }}, {{ actor.character }}</li>
+            <h4 v-if="cast.length != 0"> Cast</h4>
+            <li v-for="actor in cast.slice(0, 5)">Actor: {{ actor.name }} ,
+              character: {{ actor.character }}</li>
+            <h4 v-if="genres.length != 0"> Genres</h4>
             <li v-for="genre in genres">{{ genre.name }}</li>
           </ul>
         </div>

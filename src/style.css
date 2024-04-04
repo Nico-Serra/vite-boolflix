@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  body{
+    font-family: "Roboto", sans-serif;
+  }
   
   .container {
     width: 90%;
@@ -61,6 +65,26 @@
       .star{
         padding: 1rem 0;
         color: yellow;
+      }
+
+      .buttons{
+        display: flex;
+        margin-top: 0.5rem;
+        justify-content: space-around;
+
+        button{
+          padding: 0.5rem;
+          border-radius: 10px;
+          border-style: none;
+        }
+      }
+      .cast{
+        h4{
+          margin: 1rem 0;
+        }
+        li{
+          list-style:none ;
+        }
       }
     }
   }
