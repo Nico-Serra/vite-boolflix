@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+  }
+  
+  .col {
+    padding: 1rem;
+    width: calc(100%/3);
+  }
+  
+  .card {
+    background-color: black;
+    height: 100%;
+  
+    .card_image {
+  
+      img {
+        max-width: 100%;
+        width: 100%;
+        display: block;
+      }
+  
+    }
+  
+    .info {
+      display: none;
+  
+  
+    }
+  }
+  
+  .card:hover {
+    .card_image {
+      display: none;
+    }
+  
+    .info {
+      display: block;
+      color: white;
+      width: 100%;
+      padding: 1rem;
+      
+  
+      h3{
+        padding: 0.5rem 0;
+      }
+  
+      .star{
+        padding: 1rem 0;
+        color: yellow;
+      }
+    }
+  }

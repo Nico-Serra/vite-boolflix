@@ -63,26 +63,5 @@ export default {
 </template>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-.container {
-  width: 90%;
-  margin: auto;
-  margin-top: 1rem;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -1rem;
-}
-
-.col {
-  padding:1rem;
-  width: calc(100%/3);
-}
 </style>
