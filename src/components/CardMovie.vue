@@ -1,12 +1,12 @@
 <script>
 import axios from 'axios';
-
+import { state } from '../state.js'
 export default {
     name: 'CardMovie',
     data() {
         return {
 
-
+            state,
             cast: [],
             genres: [],
         }
@@ -23,17 +23,25 @@ export default {
         genre(movie) {
             const movieID = movie.id;
             axios.get(`https://api.themoviedb.org/3/movie/${movieID}?api_key=3d400e0ed0f9cd54b51de374af445077`).then(resp => this.genres = resp.data.genres)
+        },
+        filterMovie(genMovie){
+            if (genMovie.name === state.category ) {
+                return true
+            }
         }
 
     },
     mounted() {
 
+        this.showTheCast(this.movie)
+        this.genre(this.movie)
     }
 }
 </script>
 
 <template>
     <div class="col">
+
         <div class="card">
 
             <div class="card_image">
@@ -63,10 +71,10 @@ export default {
 
                 <p>Overview: {{ movie.overview }}</p>
 
-                <div class="buttons">
+                <!-- <div class="buttons">
                     <button @click="showTheCast(movie)">Cast</button>
                     <button @click="genre(movie)">Genres</button>
-                </div>
+                </div> -->
 
 
                 <div class="cast">
@@ -75,7 +83,7 @@ export default {
                         <li v-for="actor in cast.slice(0, 5)">Actor: {{ actor.name }} ,
                             character: {{ actor.character }}</li>
                         <h4 v-if="genres.length != 0"> Genres</h4>
-                        <li v-for="genre in genres">{{ genre.name }}</li>
+                        <li v-for="genMovie in genres" >{{ genMovie.name }}</li>
                     </ul>
                 </div>
             </div>

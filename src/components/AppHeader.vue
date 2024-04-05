@@ -28,9 +28,24 @@ export default {
 header {
     background-color: black;
     color: red;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+
+    input {
+        padding: 0.5rem;
+        font-size: 16px;
+        border: none;
+
+    }
+
+    button{
+        padding: 0.5rem;
+        font-size: 16px;
+        border: none;
+        
+    }
+
 }
 </style>

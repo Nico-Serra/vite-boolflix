@@ -25,6 +25,10 @@ export default {
       axios.get(`https://api.themoviedb.org/3/tv/${serieID}?api_key=3d400e0ed0f9cd54b51de374af445077`).then(resp => this.genres = resp.data.genres)
     }
 
+  },
+  mounted() {
+    this.showTheCast(this.serie)
+    this.genre(this.serie)
   }
 }
 </script>
@@ -57,10 +61,10 @@ export default {
 
         <p>Overview: {{ serie.overview }}</p>
 
-        <div class="buttons">
+        <!-- <div class="buttons">
           <button @click="showTheCast(serie)">Cast</button>
           <button @click="genre(serie)">Genres</button>
-        </div>
+        </div> -->
 
         <div class="cast">
           <ul>
