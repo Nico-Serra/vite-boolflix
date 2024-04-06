@@ -20,9 +20,7 @@ export default {
 
       
     },
-    hello(){
-      console.log('ciao');
-    }
+
     
   },
   components: {
@@ -47,7 +45,7 @@ export default {
         <option :value="gen.name" v-for="gen in state.listGenres ">{{ gen.name }}</option>
         
       </select>
-      <button>Send</button>
+      <!-- <button @click="saveTheValue()">Send</button> -->
     </div>
 
     <div class="container">
@@ -63,18 +61,6 @@ export default {
     </div>
   </div>
   
-
-  <!-- <div v-if="state.series.length > 0">
-    <h2>SERIE TV</h2>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          
-        </div>
-      </div>
-
-    </div>
-  </div> -->
 
 
 </template>

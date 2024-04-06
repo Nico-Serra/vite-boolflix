@@ -5,7 +5,7 @@ export const state = reactive({
     movies: [],
     series: [],
     userSearchValue: '',
-    category: '',
+    category: null,
     listGenres: [],
     cast: [],
     genres: [],
